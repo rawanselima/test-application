@@ -1,0 +1,159 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mov-color: rgb(132, 56, 142);
+  --grey-color: rgb(218, 218, 218);
+  --sky-color: rgb(230, 237, 250);
+  --blue-color: rgb(108, 112, 184);
+  --darkblue-color: rgb(54, 56, 94);
+
+  --skydark: rgb(230, 237, 250);
+  --darkbluedark: rgb(54, 56, 94);
+
+  --bluebur: #20264dd2;
+}
+
+body {
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+.quiz {
+  background-color: var(--sky-color);
+  border-radius: 15px;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: bold;
+  color: var(--darkblue-color);
+}
+
+.content {
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.question h2 {
+  color: var(--darkblue-color);
+}
+
+.answers {
+  background-color: var(--sky-color);
+  padding: 15px;
+  border-radius: 5px;
+  color: var(--darkblue-color);
+}
+
+.answer {
+  border-bottom: 2px solid white;
+}
+
+.btn {
+  background-color: var(--darkblue-color);
+  color: var(--sky-color);
+  width: 100%;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #24243e;
+  color: var(--sky-color);
+}
+
+footer {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.active {
+  background-color: var(--darkblue-color) !important;
+}
+
+.counter span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--sky-color);
+  color: transparent;
+  margin: 5px;
+}
+
+.results {
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.results span {
+  font-weight: bold;
+}
+
+.results span.perfect {
+  color: green !important;
+}
+
+.results span.bad {
+  color: red;
+}
+
+@media (min-width: 768px) {
+  .quiz {
+    width: 50%;
+  }
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  margin: 300px 50%;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  --c: no-repeat radial-gradient(farthest-side, var(--sky-color) 92%, #0000);
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: 12px 12px;
+  animation: l12 1s infinite;
+}
+.loader::before {
+  margin: 4px;
+  filter: hue-rotate(45deg);
+  background-size: 8px 8px;
+  animation-timing-function: linear;
+}
+
+@keyframes l12 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}
+
+.hidden {
+  opacity: 0;
+  transition: 1s;
+}
+
+.appear {
+  opacity: 1;
+}
